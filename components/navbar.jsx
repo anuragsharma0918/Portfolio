@@ -72,7 +72,7 @@ export default function Navbar() {
                 transition-all duration-300 hover:text-white
               "
             >
-              {item}
+              <Link href={`/${item}`}>{item}</Link>
               <span
                 className="
                   block h-[2px] w-0 bg-white mt-1 
