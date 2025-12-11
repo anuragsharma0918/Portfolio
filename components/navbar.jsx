@@ -64,22 +64,23 @@ export default function Navbar() {
           "
         >
           {["Home", "About", "Projects", "Contact Me"].map((item, index) => (
-            <div
-              key={index}
-              className="
+            <Link href={`/${item}`} key={index}>
+              <div
+                className="
                 text-white/80 text-xl 
                 group relative cursor-pointer 
                 transition-all duration-300 hover:text-white
               "
-            >
-              <Link href={`/${item}`}>{item}</Link>
-              <span
-                className="
+              >
+                {item}
+                <span
+                  className="
                   block h-[2px] w-0 bg-white mt-1 
                   transition-all duration-300 group-hover:w-full
                 "
-              ></span>
-            </div>
+                ></span>
+              </div>
+            </Link>
           ))}
 
           <button
