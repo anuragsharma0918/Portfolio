@@ -4,7 +4,7 @@ import Home from "@/components/home";
 import Skills from "@/components/skills";
 import ProjectShowcase from "@/components/ProjectShowcase";
 
-const page = () => {
+const HomePage = () => {
   return (
     <>
       <Home />
@@ -14,4 +14,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default HomePage;
