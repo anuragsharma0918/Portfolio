@@ -63,7 +63,7 @@ export default function Navbar() {
             bg-black/40 backdrop-blur-xl border-t border-white/10
           "
         >
-          {["Home", "About", "Projects", "Contact Me"].map((item, index) => (
+          {["Home", "About", "Projects", "Contact"].map((item, index) => (
             <Link href={`/${item}`} key={index}>
               <div
                 className="
