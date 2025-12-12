@@ -1,10 +1,14 @@
+"use client";
+import { useState } from "react";
+
 export default function ProjectShowcase() {
   const projects = [
     {
       title: "WanderLust",
       description:
-        "wanderlust is a full-stack accommodation booking platform that allows users to explore, list, and book stays with a seamless and secure experience. Built using HTML, CSS, JavaScript, Node.js, Express, and MongoDB, wanderlust combines robust backend services with a user-friendly frontend.",
+        "wanderlust is a full-stack accommodation booking platform that allows users to explore, list, and book stays with a seamless and secure experience.Built with HTML, CSS, and JavaScript, it features Cloudinary for media management and Passport.js for secure authentication with session and flash message support. The platform delivers a full-stack, interactive booking experience from search to reservation.",
       image: "/assets/Wanderlust.png",
+      codeUrl: "https://github.com/anuragsharma0918/wanderlust",
       tags: [
         "Html",
         "CSS",
@@ -21,64 +25,99 @@ export default function ProjectShowcase() {
     {
       title: "Zerodha",
       description:
-        "A production-oriented Zerodha landing-page clone engineered for high-performance UI replication, responsive layouts, and modular code scalability.",
+        "This is a Zerodha-like stock trading platform built with React, MongoDB, Shadcn UI, and Material-UI. It allows users to invest, track, and manage stocks efficiently, with interactive graphs and real-time data for informed trading decisions. The platform delivers a modern, responsive interface for end-to-end stock portfolio management",
       image: "/assets/zerodha.png",
+      codeUrl: "https://github.com/anuragsharma0918/zerodha",
       tags: [
-        "Next.js",
-        "MongoDB",
-        "Tailwind",
-        "ShadCN",
-        "React",
-        "Node.js",
+        "Html",
+        "CSS",
+        "JavaScript",
         "Express",
+        "MongoDB",
+        "Sessions",
+        "Flash",
+        "Passport",
+        "Cloudinary",
+        "Ejs",
       ],
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggle = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
-    <section className="w-full py-10 px-10 flex flex-col items-center">
-      <h2 className="text-3xl font-semibold  text-left w-11/12 lg:w-11/12 mb-10 ">
-        Code & Creations
-      </h2>
+    <section className="w-full py-10 px-9 flex flex-col items-center">
+      <div className="w-12/12 lg:w-11/12 mb-16">
+        <h1 className="text-3xl  font-semibold">Code & Creations</h1>
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-20 w-11/12 lg:w-11/12 pt-4">
-        {projects.map((p, index) => (
-          <div
-            key={index}
-            className="group relative rounded-2xl overflow-hidden shadow-xl bg-[#0d0d0d] border border-white/10 backdrop-blur-xl transition-all duration-500"
-          >
-            {/* Background Image */}
+      <div className="grid md:grid-cols-2 gap-16 w-12/12 lg:w-11/12">
+        {projects.map((p, index) => {
+          const isActive = activeIndex === index;
+
+          return (
             <div
-              className="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
-              style={{ backgroundImage: `url(${p.image})` }}
-            />
+              key={index}
+              onClick={() => toggle(index)}
+              className="group relative rounded-2xl overflow-hidden shadow-xl bg-[#0d0d0d] 
+                         border border-white/10 backdrop-blur-xl transition-all duration-500 cursor-pointer"
+            >
+              <div
+                className={`absolute inset-0 bg-cover bg-center transition-all duration-500 
+                ${
+                  isActive
+                    ? "blur-sm scale-105"
+                    : "md:group-hover:blur-sm md:group-hover:scale-105"
+                }`}
+                style={{ backgroundImage: `url(${p.image})` }}
+              />
 
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80 opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80 opacity-80" />
 
-            {/* Text Content */}
-            <div className="relative p-8 flex flex-col justify-end h-[350px]">
-              <h3 className="text-3xl font-semibold text-white mb-3 translate-y-5 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                {p.title}
-              </h3>
+              <div
+                className={`relative p-8 flex flex-col justify-end 
+                  ${
+                    isActive
+                      ? "opacity-100 min-h-[420px]"
+                      : "opacity-0 md:group-hover:opacity-100 md:h-[350px]"
+                  }
+                  transition-all duration-700`}
+              >
+                <h3 className="text-3xl font-semibold text-white mb-3">
+                  {p.title}
+                </h3>
 
-              <p className="text-gray-300 text-sm leading-relaxed translate-y-5 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-75">
-                {p.description}
-              </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {p.description}
+                </p>
 
-              <div className="flex flex-wrap gap-2 mt-4 translate-y-5 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-150">
-                {p.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-xs rounded-full bg-white/10 text-white border border-white/20"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {p.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 text-xs rounded-full bg-white/10 text-white border border-white/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={p.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block text-sm font-medium text-white/80 hover:text-white"
+                >
+                  View Code →
+                </a>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
               }}
             />
             <Navbar />
-            <main className="flex-1 mt-5">{children}</main>
+            <main className="flex-1 mt-5 p-2">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

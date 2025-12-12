@@ -14,17 +14,16 @@ export default function Home() {
         "
       >
         {/* Text Section */}
-        <div className=" md:pt-20 text-lg md:text-md font-serif leading-relaxed">
-          <h2 className="text-4xl text-semibold  mb-5">
+        <div className=" pt-10 md:pt-20 text-lg md:text-md font-serif leading-relaxed">
+          <h2 className="text-3xl md:text-4xl text-semibold  mb-5">
             Hi, I'm Anurag Sharma 👋
           </h2>
 
           <p className="text-gray-300">
             MERN Full-Stack Developer committed to delivering high-performance,
-            enterprise-grade web solutions. I specialize in architecting
-            scalable systems, building intuitive user experiences, and driving
-            technology excellence with professionalism, precision, and
-            integrity.
+            enterprise-grade web solutions. I specialised in architecting
+            scalable systems, building intuitive user experiences and driving
+            technology excellence with professionalism, precision and integrity.
           </p>
 
           <Link href={"/About"}>

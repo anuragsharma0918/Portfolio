@@ -1,82 +1,73 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
 import Contact from "@/components/Contact";
 
 export default function ContactPage() {
   return (
-    <section className="px-6 md:px-20 pt-15">
+    <section className="px-4 sm:px-6 md:px-20 pt-10 ">
       {/* HEADER */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold mb-8"
-      >
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 sm:mb-8">
         From Concept to Code, Seamlessly.
-      </motion.h1>
+      </h1>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="text-lg text-white/70 max-w-2xl mb-14"
-      >
+      <p className="text-base sm:text-lg text-white/70 max-w-xl sm:max-w-2xl mb-10 sm:mb-14">
         Whether you want to collaborate, discuss an idea, or just connect — I’m
         always open to meaningful conversations that move innovation forward.
-      </motion.p>
+      </p>
 
-      <div className="grid md:grid-cols-2 gap-12">
-        {/* LEFT PANEL — CONTACT INFO */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+        {/* LEFT PANEL */}
+        <div
+          className="p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10
                      shadow-[0_0_30px_rgba(255,255,255,0.05)]"
         >
-          <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-5 sm:mb-6">
+            Contact Information
+          </h2>
 
-          {/* INFO BLOCKS */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <FiMail className="text-xl text-white/60" />
-              <p className="text-white/80">anuragkum0918@gmail.com</p>
+          {/* INFO ITEMS */}
+          <div className="space-y-5 sm:space-y-6">
+            <div className="flex items-center gap-3">
+              <FiMail className="text-lg sm:text-xl text-white/60" />
+              <p className="text-white/80 text-sm sm:text-base">
+                anuragkum0918@gmail.com
+              </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <FiPhone className="text-xl text-white/60" />
-              <p className="text-white/80">+91 6299660610 </p>
+            <div className="flex items-center gap-3">
+              <FiPhone className="text-lg sm:text-xl text-white/60" />
+              <p className="text-white/80 text-sm sm:text-base">
+                +91 6299660610
+              </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <FiMapPin className="text-xl text-white/60" />
-              <p className="text-white/80">Delhi , India</p>
+            <div className="flex items-center gap-3">
+              <FiMapPin className="text-lg sm:text-xl text-white/60" />
+              <p className="text-white/80 text-sm sm:text-base">Delhi, India</p>
             </div>
           </div>
 
-          {/* SOCIAL LINKS */}
-          <div className="mt-10">
-            <h3 className="text-lg font-medium mb-4">Connect with me</h3>
+          {/* SOCIAL ICONS */}
+          <div className="mt-8 sm:mt-10">
+            <h3 className="text-base sm:text-lg font-medium mb-3 sm:mb-4">
+              Connect with me
+            </h3>
             <Contact />
           </div>
-        </motion.div>
+        </div>
 
         {/* RIGHT PANEL — CONTACT FORM */}
-        <motion.form
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+        <form
+          className="p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
                      shadow-[0_0_30px_rgba(255,255,255,0.05)]"
         >
-          <h2 className="text-2xl font-semibold mb-6">Let’s Connect</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-5 sm:mb-6">
+            Let’s Connect
+          </h2>
 
-          {/* FORM FIELDS */}
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             <div>
-              <label className="text-sm text-white/70">Name</label>
+              <label className="text-xs sm:text-sm text-white/70">Name</label>
               <input
                 type="text"
                 className="w-full mt-1 p-3 rounded-xl bg-black/20 border border-white/10
@@ -87,7 +78,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="text-sm text-white/70">Email</label>
+              <label className="text-xs sm:text-sm text-white/70">Email</label>
               <input
                 type="email"
                 className="w-full mt-1 p-3 rounded-xl bg-black/20 border border-white/10
@@ -98,7 +89,9 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="text-sm text-white/70">Message</label>
+              <label className="text-xs sm:text-sm text-white/70">
+                Message
+              </label>
               <textarea
                 rows={4}
                 className="w-full mt-1 p-3 rounded-xl bg-black/20 border border-white/10
@@ -109,19 +102,17 @@ export default function ContactPage() {
               ></textarea>
             </div>
 
-            {/* CTA BUTTON */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
+              type="button"
               className="w-full flex items-center justify-center gap-2 
                          p-3 rounded-xl font-medium 
-                         bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500
+                         bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600
                          hover:opacity-90 transition text-white"
             >
               Send Message <FiSend />
-            </motion.button>
+            </button>
           </div>
-        </motion.form>
+        </form>
       </div>
     </section>
   );
